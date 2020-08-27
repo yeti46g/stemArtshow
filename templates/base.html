@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>NCSU STEM ARTSHOW</title>
+
+    <link href="../static/assets/dist/css/boostrap.min.css" ref="stylesheet">
+
+    <link href="https://cdn.ncsu.edu/brand-assets/bootstrap-4/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.ncsu.edu/brand-assets/fonts-2-0/include.css"
+  rel="stylesheet" type="text/css" />
+
+
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="{{url_for('index')}}">Home</a>
+	{% if current_user.is_anonymous %}
+       <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+       {% else %}
+	<a class="nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+        <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+	{% endif %}
+        <a class="nav-link" href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Optional Javascript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
+</script>
+<script src="https://cdn.ncsu.edu/brand-assets/bootstrap-4/js/bootstrap.min.js">
+</script>
+</div>
+</body>
+</html>
